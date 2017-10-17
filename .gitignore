@@ -22,3 +22,6 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 sweetener-*.tar
 
+# Ignore mix.lock since it’s a general purpose package
+mix.lock
+

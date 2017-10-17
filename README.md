@@ -1,11 +1,24 @@
 # Sweetener
 
-**TODO: Add description**
+[![Build Status](https://travis-ci.org/am-kantox/sweetener.svg?branch=master)](https://travis-ci.org/am-kantox/sweetener) **Set of nifty functions I missed in Elixir core.**
+
+Helpers provided so far:
+
+- `tap` an analogue of ruby’s `tap` method.   It’s useful for more concise
+logging/external calls without intermediate local variables:
+
+```elixir
+use Sweetener
+
+tap Supervisor.start_link(children, opts) do
+  IO.inspect Supervisor.count_children(_())
+  #=> %{active: 1, specs: 1, supervisors: 0, workers: 1}
+end #=> returning {:ok, pid} tuple
+```
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `sweetener` to your list of dependencies in `mix.exs`:
+Add `sweetener` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -15,7 +28,5 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/sweetener](https://hexdocs.pm/sweetener).
+Documentation can be found at [https://hexdocs.pm/sweetener](https://hexdocs.pm/sweetener).
 
